@@ -1,6 +1,9 @@
 name: Storybook Tests
 run-name: ${{ github.event_name }} • ${{ github.event.head_commit.message }}
-on: push
+on:
+  push:
+    paths:
+      - Frontend/travel-expense-pro/**
 jobs:
   test:
     timeout-minutes: 5
