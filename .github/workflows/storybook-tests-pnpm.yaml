@@ -18,8 +18,13 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
+      - name: Cache pnpmn lock
+        uses: actions/cache@v4.1.2
+        with:
+          path: pnpm-lock.yaml
+          key: ${{ hashFiles('package-lock.json') }}
       - name: Generate pnpm lock 
-        run: pnpm import
+        run: ls -la pnpm-lock.yaml || pnpm import
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
