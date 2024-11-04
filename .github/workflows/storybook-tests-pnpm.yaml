@@ -28,9 +28,7 @@ jobs:
           key: ${{ hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
       - name: Generate pnpm lock 
         if: steps.cache-pnpm-lock.outputs.cache-hit != 'true'
-        run: |
-          pnpm import
-          pnpm add -D wait-on http-server concurrently @playwright/test --no-install
+        run: pnpm import
 
       - name: Use Node.js 22
         uses: actions/setup-node@v4
@@ -38,9 +36,11 @@ jobs:
           node-version: 22
           cache: pnpm
           cache-dependency-path: Frontend/travel-expense-pro/pnpm-lock.yaml
-
+        
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          pnpm add -D wait-on http-server concurrently @playwright/test
+          pnpm install --frozen-lockfile
 
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps
