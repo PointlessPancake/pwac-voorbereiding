@@ -16,12 +16,18 @@ jobs:
         uses: actions/cache@v4
         with:
           path: Frontend/travel-expense-pro/yarn.lock
-          key: ${{ join(['yarn.lock', hashFiles('Frontend/travel-expense-pro/package-lock.json')], '-') }}
-      - name: Use Node.js 22
+          key: yarn.lock-${{ hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
+      - name: Use Node.js 22 without caching
+        if: steps.cache-yarn.outputs.cache-hit != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: ${{ steps.cache-yarn.outputs.cache-hit == 'true' && 'yarn' || '' }}
+      - name: Use Node.js 22 with caching
+        if: steps.cache-yarn.outputs.cache-hit == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
           cache-dependency-path: Frontend/travel-expense-pro/yarn.lock
       - name: Install dependencies
         run: yarn install
@@ -33,7 +39,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ join(['Playwright', steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION], '-') }}
+          key: Playwright-${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
       - name: Build Storybook
