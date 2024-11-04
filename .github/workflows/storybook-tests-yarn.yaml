@@ -15,11 +15,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
-      - name: Generate yarn lock 
-        run: yarn import
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Build Storybook

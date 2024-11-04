@@ -15,13 +15,13 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
+      - name: Generate pnpm lock 
+        run: pnpm import
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-      - name: Generate pnpm lock 
-        run: pnpm import
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Install Playwright
