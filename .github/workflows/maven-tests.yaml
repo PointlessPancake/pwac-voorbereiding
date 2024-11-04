@@ -1,7 +1,9 @@
-name: JUnit Tests
-run-name: JUnit Tests • ${{ github.event.head_commit.message }}
+name: Maven Tests
+run-name: Maven Tests • ${{ github.event.head_commit.message }}
 on:
-  push
+  push:
+    paths:
+      - Backend/TravelExpensePro/**
 jobs:
   test:
     timeout-minutes: 5
