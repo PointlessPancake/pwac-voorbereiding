@@ -14,10 +14,12 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
+
       - name: Cache pnpmn lock
         id: cache-pnpm-lock
         uses: actions/cache@v4.1.2
@@ -26,23 +28,25 @@ jobs:
           key: ${{ hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
       - name: Generate pnpm lock 
         if: steps.cache-pnpm-lock.outputs.cache-hit != 'true'
-        run: pnpm import
+        run: |
+          pnpm import
+          pnpm add -D wait-on http-server concurrently @playwright/test --no-install
+
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
           cache-dependency-path: Frontend/travel-expense-pro/pnpm-lock.yaml
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
       - name: Install Playwright
-        run: |
-          pnpm add -D @playwright/test
-          pnpm exec playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
       - name: Build Storybook
         run: pnpm build-storybook --quiet
-      - name: Install test dependencies
-        run: pnpm add -D wait-on http-server concurrently
+
       - name: Serve Storybook and run tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" \
