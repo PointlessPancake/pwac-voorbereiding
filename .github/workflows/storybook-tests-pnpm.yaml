@@ -24,13 +24,15 @@ jobs:
           cache: pnpm
           cache-dependency-path: ./Frontend/travel-expense-pro/pnpm-lock.yaml
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Install Playwright
         run: |
           pnpm add -D @playwright/test
           pnpm exec playwright install --with-deps
       - name: Build Storybook
         run: pnpm build-storybook --quiet
+      - name: Install test dependencies
+        run: pnpm add -D wait-on http-server concurrently
       - name: Serve Storybook and run tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" \
