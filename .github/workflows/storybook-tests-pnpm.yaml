@@ -22,7 +22,7 @@ jobs:
         id: cache-pnpm-lock
         uses: actions/cache@v4.1.2
         with:
-          path: pnpm-lock.yaml
+          path: Frontend/travel-expense-pro/pnpm-lock.yaml
           key: ${{ hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
       - name: Generate pnpm lock 
         if: steps.cache-pnpm-lock.outputs.cache-hit != 'true'
