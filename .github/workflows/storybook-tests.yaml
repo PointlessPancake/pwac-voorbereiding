@@ -37,16 +37,16 @@ jobs:
           cache-dependency-path: Frontend/travel-expense-pro/yarn.lock
 
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          echo "PLAYWRIGHT_VERSION=$(npx playwright --version)" >> "$GITHUB_ENV"
 
-      - id: playwright-version
-        run: echo "result=$(npx playwright --version)" >> $GITHUB_OUTPUT
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ steps.playwright-version.outputs.result }}
+          key: ${{ env.PLAYWRIGHT_VERSION }}
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
