@@ -19,18 +19,21 @@ jobs:
         run: pnpm import
       - name: Check lock file before
         run: |
-          echo "Checking for lock file..."
+          echo "Current directory:"
+          pwd
+          echo "\nFull file path:"
+          realpath pnpm-lock.yaml
           ls -la pnpm-lock.yaml || echo "Lock file does not exist yet"
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
+          cache-dependency-path: ./Frontend/travel-expense-pro/pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install-deps
       - name: Build Storybook
         run: pnpm build-storybook --quiet
       - name: Serve Storybook and run tests
