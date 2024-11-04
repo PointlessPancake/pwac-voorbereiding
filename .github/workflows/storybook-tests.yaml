@@ -34,6 +34,7 @@ jobs:
         with:
           node-version: 22
           cache: yarn
+          cache-dependency-path: Frontend/travel-expense-pro/yarn.lock
 
       - name: Install dependencies
         run: yarn install
