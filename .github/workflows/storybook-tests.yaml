@@ -19,7 +19,7 @@ jobs:
         id: cache-yarn
         uses: actions/cache@v4
         with:
-          path: Frontend/travel-expense-pro/yark.lock
+          path: Frontend/travel-expense-pro/yarn.lock
           key: ${{ hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
 
       - name: Use Node.js 22 without caching
