@@ -1,0 +1,22 @@
+name: JUnit Tests
+run-name: JUnit Tests • ${{ github.event.head_commit.message }}
+on:
+  push
+jobs:
+  test:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4
+      - name: Set up JDK 23
+        uses: actions/setup-java@v4
+        with:
+          java-version: '23'
+          distribution: 'temurin'
+          cache: maven
+      - name: Run tests with Maven
+        run: mvn -B test --file pom.xml

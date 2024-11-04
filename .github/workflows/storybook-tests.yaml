@@ -1,5 +1,5 @@
 name: Storybook Tests
-run-name: ${{ github.event_name }} • ${{ github.event.head_commit.message }}
+run-name: Storybook Tests • ${{ github.event.head_commit.message }}
 on:
   push:
     paths:
@@ -36,13 +36,13 @@ jobs:
         run: yarn install
       - name: Get Playwright version
         id: get-playwright-version
-        run : echo "PLAYWRIGHT_VERSION=$(npx playwright --version)" >> "$GITHUB_OUTPUT"
+        run: echo "PLAYWRIGHT_VERSION=$(npx playwright --version)" >> "$GITHUB_OUTPUT"
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: Playwright-${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
+          key: Playwright ${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
       - name: Build Storybook
