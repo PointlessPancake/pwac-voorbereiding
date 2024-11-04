@@ -27,9 +27,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
 
       - name: Use Node.js 22 with caching
+        if: steps.cache-yarn.outputs.cache-hit == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
