@@ -15,8 +15,8 @@ jobs:
         id: cache-yarn
         uses: actions/cache@v4
         with:
-          path: Frontend/travel-expense-pro/yarn.lock
-          key: yarn.lock-${{ hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
+          path: ./yarn.lock
+          key: yarn.lock-${{ hashFiles('./package-lock.json') }}
       - name: Use Node.js 22 without caching
         if: steps.cache-yarn.outputs.cache-hit != 'true'
         uses: actions/setup-node@v4
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 22
           cache: yarn
-          cache-dependency-path: Frontend/travel-expense-pro/yarn.lock
+          cache-dependency-path: ./yarn.lock
       - name: Install dependencies
         run: yarn install
       - name: Get Playwright version
