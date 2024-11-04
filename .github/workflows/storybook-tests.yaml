@@ -43,7 +43,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: npx playwright --version
+          key: $(npx playwright --version)
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
