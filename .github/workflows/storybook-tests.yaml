@@ -15,19 +15,25 @@ jobs:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
 
-      - name: Use Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Cache dependencies
+      - name: Cache yarn.lock
         id: cache-yarn
         uses: actions/cache@v4
         with:
-          path: |
-            Frontend/travel-expense-pro/pnpm-lock.yaml
-            Frontend/travel-expense-pro/node_modules
+          path: Frontend/travel-expense-pro/yark.lock
           key: ${{ hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
+
+      - name: Use Node.js 22 without caching
+        if: steps.cache-yarn.outputs.cache-hit != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Use Node.js 22 with caching
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install
