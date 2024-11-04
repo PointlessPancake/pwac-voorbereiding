@@ -1,6 +1,6 @@
 name: Storybook Tests yarn
 run-name: ${{ github.event_name }} • ${{ github.event.head_commit.message || github.event.pull_request.title }}
-on: push
+on:
 jobs:
   test:
     timeout-minutes: 10
