@@ -17,13 +17,6 @@ jobs:
           version: 9
       - name: Generate pnpm lock 
         run: pnpm import
-      - name: Check lock file before
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "\nFull file path:"
-          realpath pnpm-lock.yaml
-          ls -la pnpm-lock.yaml || echo "Lock file does not exist yet"
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
@@ -31,7 +24,7 @@ jobs:
           cache: pnpm
           cache-dependency-path: ./Frontend/travel-expense-pro/pnpm-lock.yaml
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
       - name: Install Playwright
         run: |
           pnpm add -D @playwright/test
