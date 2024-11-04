@@ -16,7 +16,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: Frontend/travel-expense-pro/yarn.lock
-          key: ${{ 'yarn.lock-' + hashFiles('Frontend/travel-expense-pro/package-lock.json') }}
+          key: ${{ join(['yarn.lock', hashFiles('Frontend/travel-expense-pro/package-lock.json')], '-') }}
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
@@ -33,7 +33,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ 'Playwright-' + steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
+          key: ${{ join(['Playwright', steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION], '-') }}
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
       - name: Build Storybook
