@@ -20,8 +20,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - name: Generate pnpm lock 
+        run: pnpm import
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Build Storybook
