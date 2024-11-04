@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
-      - name: Use Node.js LTS
+      - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: 22
           cache: yarn
       - name: Install dependencies
         run: yarn install
