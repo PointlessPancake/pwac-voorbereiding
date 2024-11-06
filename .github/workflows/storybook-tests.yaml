@@ -1,9 +1,10 @@
 name: Storybook Tests
 run-name: Storybook Tests • ${{ github.event.head_commit.message }}
 on:
+  pull_request:
   push:
     paths:
-      - Frontend/**
+      - Backend/**
 jobs:
   test:
     timeout-minutes: 5
