@@ -1,6 +1,7 @@
 name: Maven Tests
 run-name: Maven Tests • ${{ github.event.head_commit.message }}
 on:
+  pull_request:
   push:
     paths:
       - Backend/**
