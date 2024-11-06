@@ -3,7 +3,7 @@ run-name: Maven Tests • ${{ github.event.head_commit.message }}
 on:
   push:
     paths:
-      - Backend/TravelExpensePro/**
+      - Backend/**
 jobs:
   test:
     timeout-minutes: 5
