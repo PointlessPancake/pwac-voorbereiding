@@ -1,5 +1,5 @@
 name: Maven Tests
-run-name: Maven Tests • ${{ github.event.head_commit.message }}
+run-name: Maven Tests • ${{ github.event.pull_request.title || github.event.head_commit.message }}
 on:
   pull_request:
   push:
