@@ -1,5 +1,5 @@
-# .github/workflows/java-ci.yaml
-name: Java CI
+# .github/workflows/backend-ci.yaml
+name: Backend CI
 
 run-name: ${{ github.workflow }} - ${{ github.event_name }} by @${{ github.actor 
 

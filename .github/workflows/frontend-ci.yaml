@@ -1,31 +1,41 @@
-name: Storybook Tests
-run-name: Storybook Tests • ${{ github.event.head_commit.message }}
+# .github/workflows/frontend-ci.yaml
+name: Frontend CI
+
+run-name: ${{ github.workflow }} - ${{ github.event_name }} by @${{ github.actor 
+
 on:
   pull_request:
   push:
     paths:
-      - Backend/**
+      - Frontend/**
+
 jobs:
-  test:
+  storybook-tests:
+    name: Storybook Tests
     timeout-minutes: 5
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: Frontend/travel-expense-pro
+
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
+
       - name: Cache yarn.lock
         id: cache-yarn
         uses: actions/cache@v4
         with:
           path: ./yarn.lock
           key: yarn.lock-${{ hashFiles('./package-lock.json') }}
+
       - name: Use Node.js 22 without caching
         if: steps.cache-yarn.outputs.cache-hit != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
       - name: Use Node.js 22 with caching
         if: steps.cache-yarn.outputs.cache-hit == 'true'
         uses: actions/setup-node@v4
@@ -33,21 +43,27 @@ jobs:
           node-version: 22
           cache: yarn
           cache-dependency-path: ./yarn.lock
+
       - name: Install dependencies
         run: yarn install
+
       - name: Get Playwright version
         id: get-playwright-version
         run: echo "PLAYWRIGHT_VERSION=$(npx playwright --version)" >> "$GITHUB_OUTPUT"
+
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
           key: Playwright ${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+
       - name: Build Storybook
         run: yarn build-storybook --quiet
+
       - name: Serve Storybook and run tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" \
