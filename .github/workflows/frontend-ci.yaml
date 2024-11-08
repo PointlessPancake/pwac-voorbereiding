@@ -23,6 +23,10 @@ jobs:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
 
+      # Development uses npm, but CI uses yarn for faster installation
+      # First run: Generate yarn.lock and cache it
+      # Second run: Use cached yarn.lock to cache dependencies
+      # Subsequent runs: Use cached yarn.lock to use cached dependencies
       - name: Cache yarn.lock
         id: cache-yarn
         uses: actions/cache@v4
@@ -47,7 +51,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Get Playwright version
+      - name: Get Playwright version for cache key
         id: get-playwright-version
         run: echo "PLAYWRIGHT_VERSION=$(npx playwright --version)" >> "$GITHUB_OUTPUT"
 
@@ -56,7 +60,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: Playwright ${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
+          key: Playwright browsers - ${{ steps.get-playwright-version.outputs.PLAYWRIGHT_VERSION }}
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
