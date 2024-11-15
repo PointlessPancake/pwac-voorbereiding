@@ -1,7 +1,7 @@
 # .github/workflows/backend-ci.yaml
 name: Backend CI
 
-run-name: ${{ github.workflow }} - ${{ github.event_name }} by @${{ github.actor 
+run-name: ${{ github.workflow }} - ${{ github.event_name }} by @${{ github.actor }}
 
 on:
   pull_request:
