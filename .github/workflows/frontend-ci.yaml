@@ -75,4 +75,4 @@ jobs:
         run: |
           npx concurrently -k -s first -n "SB,TEST" \
             "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook --passWithNoTests"
+            "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"
