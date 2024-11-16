@@ -34,8 +34,8 @@ jobs:
         id: cache-yarn
         uses: actions/cache@v4
         with:
-          path: ./yarn.lock
-          key: yarn.lock-${{ hashFiles('./package-lock.json') }}
+          path: frontend/crm-green-office/yarn.lock
+          key: yarn.lock-${{ hashFiles('frontend/crm-green-office/package-lock.json') }}
 
       - name: Use Node.js 22 without caching
         if: steps.cache-yarn.outputs.cache-hit != 'true'
