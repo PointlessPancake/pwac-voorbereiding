@@ -6,8 +6,11 @@ run-name: ${{ github.workflow }} - ${{ github.event_name }} by @${{ github.actor
 on:
   pull_request:
   push:
+    branches:
+      - main
+      - dev
     paths:
-      - Backend/**
+      - backend/**
 
 jobs:
   maven-verify:
@@ -17,7 +20,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: Backend/TravelExpensePro/
+        working-directory: backend/crmGreenOffice
 
     steps:
       - name: Check out the repository to the runner

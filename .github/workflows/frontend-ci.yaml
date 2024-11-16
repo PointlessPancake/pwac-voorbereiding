@@ -6,8 +6,11 @@ run-name: ${{ github.workflow }} - ${{ github.event_name }} by @${{ github.actor
 on:
   pull_request:
   push:
+    branches:
+      - main
+      - dev
     paths:
-      - Frontend/**
+      - frontend/**
 
 jobs:
   storybook-tests:
@@ -17,7 +20,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: Frontend/travel-expense-pro/
+        working-directory: frontend/crm-green-office
 
     steps:
       - name: Check out the repository to the runner
