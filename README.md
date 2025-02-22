@@ -1,6 +1,6 @@
 # Project Name
 
-[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](https://semver.org)
+[![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)](https://semver.org)
 [![License](https://img.shields.io/badge/license-TEST-green.svg)](LICENSE)
 
 A brief description of what your project does and why it's useful.
