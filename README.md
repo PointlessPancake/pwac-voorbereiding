@@ -54,23 +54,6 @@ package.doSomething();
 - Key feature 2
 - Key feature 3
 
-## Documentation
-
-For full documentation, visit [docs.yourproject.com](https://docs.yourproject.com).
-
-## API Reference
-
-### `functionName(param1, param2)`
-
-Description of what the function does.
-
-**Parameters:**
-- `param1` (Type): Description of parameter
-- `param2` (Type): Description of parameter
-
-**Returns:**
-- (Type): Description of return value
-
 ## Contributing
 
 Contributions are welcome! Please read our [CONTRIBUTING](CONTRIBUTING.md) guide for details on our code of conduct and the process for submitting pull requests.
