@@ -60,7 +60,7 @@ Contributions are welcome! Please read our [CONTRIBUTING](CONTRIBUTING.md) guide
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the TEST License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
