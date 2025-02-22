@@ -17,12 +17,6 @@ const package = require('your-package-name');
 package.doSomething();
 ```
 
-## Features
-
-- Key feature 1
-- Key feature 2
-- Key feature 3
-
 ## Contributing
 
 Contributions are welcome! Please read our [CONTRIBUTING](CONTRIBUTING.md) guide for details on our code of conduct and the process for submitting pull requests.
