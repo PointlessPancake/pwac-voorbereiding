@@ -1,27 +1,5 @@
 This project follows [Semantic Versioning 2.0.0](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/). 
 
-### Semantic Versioning
-- MAJOR version increments for incompatible API changes
-- MINOR version increments for backward-compatible functionality additions
-- PATCH version increments for backward-compatible bug fixes
-
-### Conventional Commits
-We use conventional commits to standardize commit messages:
-- `feat:` - A new feature (increments MINOR version)
-- `fix:` - A bug fix (increments PATCH version)
-- `docs:` - Documentation only changes
-- `style:` - Changes that do not affect the meaning of the code
-- `refactor:` - A code change that neither fixes a bug nor adds a feature
-- `perf:` - A code change that improves performance
-- `test:` - Adding missing tests or correcting existing tests
-- `build:` - Changes that affect the build system or external dependencies
-- `ci:` - Changes to our CI configuration files and scripts
-- `chore:` - Other changes that don't modify src or test files
-
-Breaking changes are indicated by `!` or `BREAKING CHANGE:` in the commit message (increments MAJOR version).
-
-For a detailed list of changes for each version, please see the [CHANGELOG](CHANGELOG.md).
-
 ## Installation
 
 ```bash
