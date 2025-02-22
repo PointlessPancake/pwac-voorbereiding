@@ -16,15 +16,3 @@ const package = require('your-package-name');
 // Example code showing basic usage
 package.doSomething();
 ```
-
-## Contributing
-
-Contributions are welcome! Please read our [CONTRIBUTING](CONTRIBUTING.md) guide for details on our code of conduct and the process for submitting pull requests.
-
-## License
-
-This project is licensed under the TEST License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- List any libraries, tools, or contributors you'd like to acknowledge
