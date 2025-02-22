@@ -1,9 +1,3 @@
-# Project Name
-
-A brief description of what your project does and why it's useful.
-
-## Versioning
-
 This project follows [Semantic Versioning 2.0.0](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/). 
 
 ### Semantic Versioning
