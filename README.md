@@ -1,26 +1,84 @@
-### Team afspraken:
--	Op niet thuiswerkdagen is het team is om 9 aanwezig op locatie en de daily stand-up is om 9:15, zodat het team samen kan starten met ruimte voor inloop. 
--	Op niet thuiswerkdagen heeft het team heeft pauze van 12:15 tot 13:00 om de gemoederen hoog te houden.
--	Op niet thuiswerkdagen werkt het team minstens tot 15:30 op locatie om samen goed door te werken.
-- Het team plant werk tot 17:00. Als iemand eerder vertrekt zal hier thuis aan moeten worden gewerkt.
--	In overleg met het team kan altijd uitzonderingen op deze afspraken worden gemaakt, zodat teamleden elkaar tegemoet kunnen komen.
--	Vanaf sprint 1 heeft het team een thuiswerkdag om te focussen op het projectverslag en bij te komen van de prikkels.
-- Aan het eind van de dag voor de thuiswerkdag bespreekt het team de taken voor de thuiswerkdag als een soort Daily Stand-Up.
+# Project Name
 
-### GitHub afspraken:
--	Werken met Main, Dev, Feature en Task branches om werkomgevingen van elkaar te scheiden
-- Alle communicatie is in het Nederlands (Commits, DoD, Acceptatiecriteria, Reviews, PR etc.)
-- Alle code en comments zijn in het Engels.
--	Scheiden Frontend en Backend met folders om dit netjes los van elkaar te houden.
+[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](https://semver.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-### Definition of done:
-- Code voldoet aan de styleguide van Google.
-- Er zijn testen waar nodig (unit testen voor back-end en storybook testen voor front-end).
-- Er is documentatie over de gemaakte code (in de software guidebook en als commentaar).
-- Back-end volgt het API-contract.
-- De front-end pagina’s zijn compatibel voor mobiele versie.
-- Er staat voldoende commentaar waar nodig.
-- De gebruiker moet feedback krijgen op zijn input.
-- Alle acceptatiecriteria zijn voldaan.
-- Accessibilty is getest en mogelijke problemen zijn opgelost.
-- Alle code en testen zijn door minstens twee personen gereviewd en eventuele feedback is verwerkt.
+A brief description of what your project does and why it's useful.
+
+## Versioning
+
+This project follows [Semantic Versioning 2.0.0](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/). 
+
+### Semantic Versioning
+- MAJOR version increments for incompatible API changes
+- MINOR version increments for backward-compatible functionality additions
+- PATCH version increments for backward-compatible bug fixes
+
+### Conventional Commits
+We use conventional commits to standardize commit messages:
+- `feat:` - A new feature (increments MINOR version)
+- `fix:` - A bug fix (increments PATCH version)
+- `docs:` - Documentation only changes
+- `style:` - Changes that do not affect the meaning of the code
+- `refactor:` - A code change that neither fixes a bug nor adds a feature
+- `perf:` - A code change that improves performance
+- `test:` - Adding missing tests or correcting existing tests
+- `build:` - Changes that affect the build system or external dependencies
+- `ci:` - Changes to our CI configuration files and scripts
+- `chore:` - Other changes that don't modify src or test files
+
+Breaking changes are indicated by `!` or `BREAKING CHANGE:` in the commit message (increments MAJOR version).
+
+For a detailed list of changes for each version, please see the [CHANGELOG](CHANGELOG.md).
+
+## Installation
+
+```bash
+npm install your-package-name
+# or
+yarn add your-package-name
+```
+
+## Quick Start
+
+```javascript
+const package = require('your-package-name');
+
+// Example code showing basic usage
+package.doSomething();
+```
+
+## Features
+
+- Key feature 1
+- Key feature 2
+- Key feature 3
+
+## Documentation
+
+For full documentation, visit [docs.yourproject.com](https://docs.yourproject.com).
+
+## API Reference
+
+### `functionName(param1, param2)`
+
+Description of what the function does.
+
+**Parameters:**
+- `param1` (Type): Description of parameter
+- `param2` (Type): Description of parameter
+
+**Returns:**
+- (Type): Description of return value
+
+## Contributing
+
+Contributions are welcome! Please read our [CONTRIBUTING](CONTRIBUTING.md) guide for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- List any libraries, tools, or contributors you'd like to acknowledge
