@@ -1,6 +1,6 @@
 This project follows [Semantic Versioning 2.0.0](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/). 
 
-## Installation
+### Installation
 
 To install dependencies:
 
@@ -8,7 +8,7 @@ To install dependencies:
 yarn install
 ```
 
-## Development
+### Development
 
 To start the development server with Vite:
 
